@@ -24,7 +24,7 @@ while True:
 
     annotator = Annotator(im0, line_width=2)
 
-    results = model.track(im0, persist=True, classes=[0],)
+    results = model.track(im0, persist=True, classes=[0], conf=0.7, )
     boxes = results[0].boxes.xyxy.cpu()
 
     if results[0].boxes.id is not None:

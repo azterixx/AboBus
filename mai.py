@@ -1,12 +1,11 @@
 import math
 
 import cv2
-
 from ultralytics import YOLO
 from ultralytics.utils.plotting import Annotator
 
-model = YOLO("yolov8s.pt")
-cap = cv2.VideoCapture("busfinal.mp4")
+model = YOLO("yolov8n.pt")
+cap = cv2.VideoCapture(0)
 
 w, h, fps = (int(cap.get(x)) for x in (cv2.CAP_PROP_FRAME_WIDTH, cv2.CAP_PROP_FRAME_HEIGHT, cv2.CAP_PROP_FPS))
 
@@ -25,7 +24,7 @@ while True:
 
     annotator = Annotator(im0, line_width=2)
 
-    results = model.track(im0, persist=True)
+    results = model.track(im0, persist=True, classes=[0],)
     boxes = results[0].boxes.xyxy.cpu()
 
     if results[0].boxes.id is not None:

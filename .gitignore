@@ -161,3 +161,5 @@ cython_debug/
 
 tumobrainor/assets/mri/
 tumobrainor/detection/models/
+*.mp4
+*.pt

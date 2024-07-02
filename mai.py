@@ -13,7 +13,7 @@ out = cv2.VideoWriter("visioneye-distance-calculation.avi", fourcc, fps, (w, h))
 
 
 
-center_point = (0, h)
+center_point = (1000, h)
 pixel_per_meter = 10
 
 txt_color, txt_background, bbox_clr = ((0, 0, 0), (255, 255, 255), (255, 0, 255))

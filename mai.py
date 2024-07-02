@@ -8,8 +8,10 @@ model = YOLO("yolov8n.pt")
 cap = cv2.VideoCapture(0)
 
 w, h, fps = (int(cap.get(x)) for x in (cv2.CAP_PROP_FRAME_WIDTH, cv2.CAP_PROP_FRAME_HEIGHT, cv2.CAP_PROP_FPS))
+fourcc = cv2.VideoWriter_fourcc(*'MJPG')  # Adjust the codec based on your preference
+out = cv2.VideoWriter("visioneye-distance-calculation.avi", fourcc, fps, (w, h))
 
-out = cv2.VideoWriter("visioneye-distance-calculation.avi", cv2.VideoWriter_fourcc(*"MJPG"), fps, (w, h))
+
 
 center_point = (0, h)
 pixel_per_meter = 10
